@@ -3,6 +3,7 @@
 let strings=["Tl","tl","TL","tL","TL"]
 let obj={}
  strings.map((x)=>{
+   
     if(x in obj){
         // retu1rn obj[x] +=1    
         return obj[x] =obj[x]+1

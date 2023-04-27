@@ -1,15 +1,40 @@
 //7.Write a function that takes an array of numbers and returns an object where the keys are the numbers and the values are arrays of theirprime factors. Use the Mapobject to accomplish this.
 
-let num=[1,2,3,4,5]
-let obj={}
-num.map((e) =>{
-    if(!(e in obj)){
-        obj[e]=[]
+function isPrime(i) {
+    count = 0;
+    for (let j = 2; j < i; j++) {
+      if (i % j === 0) {
+        count++;
+      }
     }
-    for(i=1;i<=e;i++){
-        if(e%i==0){
-            obj[e].push(i)
+    if (count === 0) {
+      return true;
+    }
+  }
+  
+  function getPrimeFactors(n) {
+    let a = [];
+    for (let i = 2; i <= n/2; i++) {
+      if (isPrime(i) && n % i === 0) {
+        a.push(i);
+        n = n / i;
+        i = 1;
+        if (isPrime(n)) {
+          a.push(n);
+          break;
         }
+      }
     }
-})
-console.log(obj)
+    return a;
+  }
+  
+  let array = [1, 2, 3, 4, 5,27,17];
+  array.map((e) => {
+    let obj = {};
+    if (isPrime(e)) {
+      obj[e] = [e];
+    } else {
+      obj[e] = getPrimeFactors(e);
+    }
+    console.log(obj);
+  });

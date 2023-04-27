@@ -8,7 +8,6 @@ let obj={}
 details.map((e)=>{
     let c= new Date(e.dob).getFullYear()
     // console.log(c)
-    // let c=(e.dob).getFullYear()
     if(!(c in obj)){
         obj[c]=[]
     }
